@@ -1,44 +1,43 @@
-function rockPaperScissors(playerTurn){
+function rockPaperScissors(playerTurn) {
 
-const rock = "Rock";
-const paper = "Paper";
-const scissors = "Scissors";
+    const rock = "Rock";
+    const paper = "Paper";
+    const scissors = "Scissors";
 
-if (playerTurn === "r" || playerTurn === "rock") {
-    playerTurn = rock;
-    console.log("You choose Rock");
-} else if (playerTurn === "p" || playerTurn === "paper") {
-    playerTurn = paper;
-    console.log("You choose Paper");
-} else if (playerTurn === "s" || playerTurn === "scissors") {
-    playerTurn = scissors;
-    console.log("You choose Scissors");
-} else {
-    console.log("Invalid Input. Try Again...");
+    if (playerTurn === "r" || playerTurn === "rock") {
+        playerTurn = rock;
+        console.log("\x1b[93mYou choose Rock\x1b[0m");
+    } else if (playerTurn === "p" || playerTurn === "paper") {
+        playerTurn = paper;
+        console.log("\x1b[93mYou choose Paper\x1b[0m");
+    } else if (playerTurn === "s" || playerTurn === "scissors") {
+        playerTurn = scissors;
+        console.log("\x1b[93mYou choose Scissors\x1b[0m");
+    } else {
+        console.log("\x1b[100mInvalid Input. Try Again...\x1b[0m");
+    }
+    let computerRandomNumber = Math.floor(Math.random() * 3) + 1;
+    let computerTurn = "";
+    switch (computerRandomNumber) {
+        case 1:
+            computerTurn = rock;
+            break;
+        case 2:
+            computerTurn = paper;
+            break;
+        case 3:
+            computerTurn = scissors;
+            break;
+    }
+    console.log(`\x1b[37mThe computer chooses ${computerTurn}\x1b[0m`);
+
+    if ((playerTurn === rock && computerTurn === scissors) || (playerTurn === paper && computerTurn === rock) || (playerTurn === scissors && computerTurn === paper)) {
+        console.log("\x1b[32mYou win!\x1b[0m");
+        score++;
+    } else if ((playerTurn === scissors && computerTurn === rock) || (playerTurn === rock && computerTurn === paper) || (playerTurn === paper && computerTurn === scissors)) {
+        console.log("\x1b[31mYou lose!\x1b[0m");
+    } else {
+        console.log("\x1b[35mThis game was a draw!\x1b[0m");
+    }
 }
-
-let computerRandomNumber = Math.floor(Math.random() * 3) + 1;
-let computerTurn = "";
-switch (computerRandomNumber) {
-    case 1:
-        computerTurn = rock;
-        break;
-    case 2:
-        computerTurn = paper;
-        break;
-    case 3:
-        computerTurn = scissors;
-        break;
-}
-
-console.log(`The computer chooses ${computerTurn}`);
-
-if ((playerTurn === rock && computerTurn === scissors) || (playerTurn === paper && computerTurn === rock) || (playerTurn === scissors && computerTurn === paper)) {
-    console.log("You win!");
-} else if ((playerTurn === scissors && computerTurn === rock) || (playerTurn === rock && computerTurn === paper) || (playerTurn === paper && computerTurn === scissors)) {
-    console.log("You lose!");
-} else {
-    console.log("This game was a draw!");
-}
-}
-rockPaperScissors("p")
+rockPaperScissors("p");
