@@ -33,7 +33,6 @@ function rockPaperScissors(playerTurn) {
 
     if ((playerTurn === rock && computerTurn === scissors) || (playerTurn === paper && computerTurn === rock) || (playerTurn === scissors && computerTurn === paper)) {
         console.log("\x1b[32mYou win!\x1b[0m");
-        score++;
     } else if ((playerTurn === scissors && computerTurn === rock) || (playerTurn === rock && computerTurn === paper) || (playerTurn === paper && computerTurn === scissors)) {
         console.log("\x1b[31mYou lose!\x1b[0m");
     } else {
